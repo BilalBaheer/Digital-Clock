@@ -4,6 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Clock</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="Script.js"></script>
+    <style>
+        body{
+            background: #000;
+        
+        }
+        .heading{
+            color: tomato;
+            font-size: 75px;
+            text-align: center;
+            border-radius: 10px #ccc;
+            border-color: white;
+            padding: 125px;
+            top: 40%;
+            left: 40%;
+
+
+        }
+
+        .clock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-15%) translate(-40%);
+            color: white;
+            font-size: 85px;
+            border: 1px solid #ccc;
+            padding: 10px 5px 0px 5px;
+            text-align: center;
+
+        }
+        h2{
+            font-size: 20px;
+            color: white;
+        
+        }
+    </style>
 </head>
+<body>
+    <h1 class="heading">DIGITAL ClOCK</h1>
+    <div id="myClockDisplay" class="clock"></div>
+    <script type="text/javascript">
+    function showTime() {
+        let date = new Date();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        let session = " AM"
+
+        if (h === 0) {
+            h = 12;
+        }
+        if (h > 12) {
+            h = h - 12;
+            session = ' PM'
+        }
+        if (h < 10) {
+            h = '0' + h;
+        }
+        if (m < 10) {
+            m = '0' + m;
+        }
+        if (s < 10) {
+            s = '0' + s;
+        }
+        let time = h + ":" + m + ':' + s + session;
+        document.getElementById("myClockDisplay").innerText = time;
+        document.getElementById("myClockDisplay").innerText = time;
+        
+        setTimeout(showTime, 1000);
+    }
+
+    showTime();
+
+
+
+    </script>
+</body>
+</html>
